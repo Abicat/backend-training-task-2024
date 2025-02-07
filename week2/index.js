@@ -128,7 +128,6 @@ function calcBonus(coachIncome) {
 
     case coachIncome > 300000:
       return baseBonus + coachIncome * 0.2;
-
   }
 }
 
@@ -273,9 +272,9 @@ console.log("-----題目七-----");
 
 const performanceGoals = 50000;
 
-function meetSalesTarget(currentPerformance, performanceGoals){
-  if (currentPerformance < performanceGoals){
-    currentPerformance += (performanceGoals - currentPerformance);
+function meetSalesTarget(currentPerformance, performanceGoals) {
+  if (currentPerformance < performanceGoals) {
+    currentPerformance += performanceGoals - currentPerformance;
   }
 
   return currentPerformance;
@@ -286,8 +285,11 @@ function meetSalesTarget(currentPerformance, performanceGoals){
 //   // 請填寫第一位教練業績增長程式碼，使用 +=
 // }
 const firstCoach = performanceData.coaches[0];
-if(firstCoach.performance < performanceGoals){
-  firstCoach.performance = meetSalesTarget(firstCoach.performance, performanceGoals)
+if (firstCoach.performance < performanceGoals) {
+  firstCoach.performance = meetSalesTarget(
+    firstCoach.performance,
+    performanceGoals
+  );
 }
 
 // 練習：第二位教練（可將下方程式碼註解移除，完成答題）
@@ -295,8 +297,11 @@ if(firstCoach.performance < performanceGoals){
 //   // 請填寫第二位教練業績增長程式碼，使用 +=
 // }
 const SecondCoach = performanceData.coaches[1];
-if(SecondCoach.performance < performanceGoals){
-  SecondCoach.performance = meetSalesTarget(SecondCoach.performance, performanceGoals)
+if (SecondCoach.performance < performanceGoals) {
+  SecondCoach.performance = meetSalesTarget(
+    SecondCoach.performance,
+    performanceGoals
+  );
 }
 
 console.log(performanceData);
@@ -315,17 +320,17 @@ console.log(performanceData);
 console.log("-----題目八-----");
 const activities = {
   treadmill: {
-    name: '跑步機',
-    calPerMin: 10
+    name: "跑步機",
+    calPerMin: 10,
   },
   yoga: {
-    name: '瑜伽',
-    calPerMin: 5
+    name: "瑜伽",
+    calPerMin: 5,
   },
   bicycle: {
-    name: '騎腳踏車',
-    calPerMin: 8
-  }
+    name: "騎腳踏車",
+    calPerMin: 8,
+  },
 };
 console.log(activities);
 //--- 練習結束
@@ -343,7 +348,8 @@ let calorieBurn = 0;
 //--- 練習區
 console.log("-----題目九-----");
 const { treadmill, yoga, bicycle } = activities;
-calorieBurn += ( bicycle.calPerMin * 10 * 2 + treadmill.calPerMin * 30 + yoga.calPerMin * 40);
+calorieBurn +=
+  bicycle.calPerMin * 10 * 2 + treadmill.calPerMin * 30 + yoga.calPerMin * 40;
 console.log(`小明今日一共消耗約 ${calorieBurn} 卡路里。`);
 //--- 練習結束
 
@@ -382,7 +388,7 @@ console.log("-----題目十-----");
 exerciseRecords.forEach(({ duration, heartRate }) => {
   if (duration >= 30 && heartRate >= 130) {
     totalDuration += duration;
-    validDays ++;
+    validDays++;
   }
 });
 //--- 練習結束
@@ -394,5 +400,5 @@ let isCompliant; // 條件：運動次數至少 5 次 || 運動時間累績達�
 //--- 練習區
 isCompliant = validDays >= 5 || totalDuration >= 150;
 
-console.log(`小明的運動量是否達標: ${isCompliant ? "達標" : "未達標"}`); 
+console.log(`小明的運動量是否達標: ${isCompliant ? "達標" : "未達標"}`);
 //--- 練習結束
