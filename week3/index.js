@@ -14,12 +14,11 @@ let totalPrice = 0;
 
 function addPurchaseRecord(memberName, coursesNum) {
   if (
-    typeof memberName !== "string" ||
-    typeof coursesNum !== "number" ||
-    memberName.length == 0 ||
+    typeof(memberName) !== "string" ||
+    typeof(coursesNum) !== "number" ||
+    memberName == "" ||
     coursesNum < 0 ||
-    !memberName ||
-    !coursesNum
+    !memberName
   ) {
     console.error("輸入錯誤，請輸入有效的會員名稱和課程數量。");
     return;
